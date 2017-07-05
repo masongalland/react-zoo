@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Species extends Component {
-    render() {
-        return (
-            <div>
-                <h5>{ this.props.name }</h5>
-                
-            </div>
-        );
+
+function Species(props){
+    function handleCLick(){
+        props.action(props.name)
     }
+
+    
+    return (
+        <div>
+            <h5>{ props.name }</h5>
+            <p>{props.status}</p>
+            <button onClick={handleCLick}>Feed</button>   
+        </div>
+    );
+    
 }
+
 
 export default Species;
