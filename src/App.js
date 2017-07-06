@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {getAnimals} from './services/animals'
 import Species from './components/Species'
 import logo from './logo.svg';
 import './App.css';
@@ -62,6 +63,16 @@ class App extends Component {
     }
     this.setState({
       species: species
+    });
+  }
+
+  componentDidMount(){
+    let animals;
+    getAnimals().then(response => {
+      animals = response.data
+      this.setState({
+        species: animals
+      });
     });
   }
   
